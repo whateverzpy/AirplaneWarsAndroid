@@ -112,6 +112,7 @@ public class BaseGame extends SurfaceView implements SurfaceHolder.Callback, Run
     protected boolean bossBgmActive = false;
     protected boolean gameOverHandled = false;
     protected GameEventListener gameEventListener;
+    private boolean gameStateInitialized = false;
 
     private static final int TIME_INTERVAL = 40;
     private static final int CYCLE_DURATION = 600;
@@ -203,7 +204,15 @@ public class BaseGame extends SurfaceView implements SurfaceHolder.Callback, Run
         eliteProbability = resolveEliteProbability();
         elitePlusProbability = resolveElitePlusProbability();
         enemyFactory.enableRandom(eliteProbability, elitePlusProbability);
-        heroAircraft.setShootCycle(resolveHeroShootCycle());
+        int heroShootCycle = resolveHeroShootCycle();
+        if (!gameStateInitialized) {
+            int initX = Main.WINDOW_WIDTH / 2;
+            int heroHeight = ImageManager.HERO_IMAGE != null ? ImageManager.HERO_IMAGE.getHeight() : 0;
+            int initY = Math.max(0, Main.WINDOW_HEIGHT - heroHeight);
+            heroAircraft.resetForNewGame(initX, initY);
+            gameStateInitialized = true;
+        }
+        heroAircraft.setShootCycle(heroShootCycle);
         audioManager = GameAudioManager.getInstance(getContext());
         bossBgmActive = false;
         gameOverHandled = false;

@@ -74,6 +74,29 @@ public class HeroAircraft extends AbstractAircraft {
         return instance;
     }
 
+    /**
+     * 重置单例英雄机，确保每一局都从完整生命值和默认射击状态开始。
+     *
+     * @param locationX 初始 x 坐标
+     * @param locationY 初始 y 坐标
+     */
+    public void resetForNewGame(int locationX, int locationY) {
+        if (powerUpTimer != null && powerUpTimer.isAlive()) {
+            powerUpTimer.interrupt();
+        }
+        powerUpTimer = null;
+
+        setLocation(locationX, locationY);
+        this.speedX = 0;
+        this.speedY = 0;
+        this.hp = this.maxHp;
+        this.isValid = true;
+        this.power = 30;
+        this.direction = -1;
+        this.shootTimer = 0;
+        revertToDefaultShoot();
+    }
+
     public int getShootNum() {
         return shootNum;
     }

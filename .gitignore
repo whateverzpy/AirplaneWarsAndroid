@@ -1,6 +1,5 @@
-# ============= IDE相关 =============
+# IDE and editor local state
 *.iml
-.idea/
 .vscode/
 *.swp
 *.swo
@@ -11,25 +10,86 @@
 *.launch
 .settings/
 *.sublime-workspace
+.idea/**/workspace.xml
+.idea/**/shelf/
+.idea/**/caches/
+.idea/codeStyles/
+.idea/deploymentTargetSelector.xml
+.idea/deviceManager.xml
+.idea/markdown.xml
+SocketServer/.idea/
+SocketServer/.idea/**/workspace.xml
+SocketServer/.idea/**/shelf/
+SocketServer/.idea/**/caches/
+SocketServer/.idea/deploymentTargetSelector.xml
 
-# ============= Gradle构建系统 =============
+# Gradle and build outputs
 .gradle/
+**/.gradle/
 build/
-gradle-app.setting
-!gradle-wrapper.jar
+**/build/
 .gradletasknamecache
-local.properties
-gradle.properties
+gradle-app.setting
 
-# ============= Android特定 =============
-/captures
-/app/build/
-.externalNativeBuild
-.cxx
+# Android local/generated files
+local.properties
+**/local.properties
+/captures/
+**/captures/
+.externalNativeBuild/
+**/.externalNativeBuild/
+.cxx/
+**/.cxx/
 lint.xml
 lint-baseline.xml
+app/release/
 
-# ============= 操作系统 =============
+# Java/Kotlin compiled artifacts and packaged outputs
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+!**/gradle/wrapper/gradle-wrapper.jar
+*.war
+*.aar
+*.jmod
+*.dex
+*.apk
+*.ap_
+*.aab
+*.btm.xml
+*.production.xml
+*.kt.bak
+*.ktx.bak
+
+# Other build tools
+target/
+out/
+*.o
+*.so
+*.dylib
+build-log.txt
+
+# Logs, diagnostics, and crash dumps
+*.log
+crashes/
+bug_report.log
+*.trace
+*.prof
+*.hprof
+gradle_fail.log
+compact_log.txt
+
+# Secrets and signing material
+proguard/
+signing.properties
+keystore.properties
+*.jks
+*.keystore
+
+# Runtime data
+**/rankings.json
+
+# Operating system files
 .DS_Store
 .DS_Store?
 ._*
@@ -38,71 +98,3 @@ lint-baseline.xml
 ehthumbs.db
 Thumbs.db
 *.tmp
-
-# ============= Java/Kotlin编译产物 =============
-*.class
-*.jar
-*.war
-*.aar
-*.jmod
-*.dex
-*.apk
-*.ap_
-*.aab
-*.ap_
-*.btm.xml
-*.production.xml
-
-# ============= 其他构建工具 =============
-target/
-out/
-*.o
-*.so
-*.dylib
-build-log.txt
-
-# ============= Kotlin相关 =============
-*.kt.bak
-*.ktx.bak
-
-# ============= Maven覆盖范围 =============
-!/gradle/wrapper/gradle-wrapper.jar
-
-# ============= 开发工具 =============
-*.log
-crashes/
-bug_report.log
-*.trace
-*.prof
-*.hprof
-
-# ============= 本地开发配置 =============
-proguard/
-signing.properties
-keystore.properties
-app/release/
-
-# ============= 本地临时文件 =============
-gradle_fail.log
-compact_log.txt
-
-# ============= SocketServer 文件夹临时文件及配置 =============
-SocketServer/local.properties
-SocketServer/.gradle/
-SocketServer/.idea/
-SocketServer/build/
-SocketServer/app/build/
-SocketServer/SocketServer/build/
-
-# ============= build/gradlew 全部忽略 =============
-**/build/
-build.gradle
-build.gradle.kts
-**/build.gradle
-**/build.gradle.kts
-gradlew
-gradlew.bat
-gradle/wrapper/
-
-# 文档
-
